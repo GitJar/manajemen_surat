@@ -54,8 +54,8 @@
                 text-align: center;
             }
             #nama {
-                font-size: 2.1rem;
-                margin-bottom: -1rem;
+                font-size: 1.5rem;
+                margin-bottom: -2rem;
             }
             #alamat {
                 font-size: 16px;
@@ -64,16 +64,19 @@
                 text-transform: uppercase;
                 margin: 0;
                 line-height: 2.2rem;
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             .status {
                 margin: 0;
-                font-size: 1.3rem;
-                margin-bottom: .5rem;
+                font-size: 1.5rem;
+                margin-bottom: 0rem;
             }
             #lbr {
                 font-size: 20px;
                 font-weight: bold;
+            }
+            .webmail{
+                margin-left: 8rem;  
             }
             .separator {
                 border-bottom: 2px solid #616161;
@@ -129,27 +132,31 @@
                     margin-bottom: -10px;
                 }
                 #nama {
-                    font-size: 20px!important;
-                    font-weight: bold;
+                    font-size: 18px!important;
                     text-transform: uppercase;
                     margin: -10px 0 -20px 0;
                 }
                 .up {
-                    font-size: 17px!important;
+                    font-size: 22px!important;
                     font-weight: normal;
                 }
                 .status {
-                    font-size: 17px!important;
+                    font-size: 18px!important;
                     font-weight: normal;
-                    margin-bottom: -.1rem;
+                    margin-bottom: 0rem;
+                    margin-top: -10px !important;
                 }
                 #alamat {
                     margin-top: -15px;
-                    font-size: 13px;
+                    font-size: 15px;
                 }
                 #lbr {
                     font-size: 17px;
                     font-weight: bold;
+                }
+                .webmail{
+                margin-left: 5rem;  
+                font-size: 15px;
                 }
                 .separator {
                     border-bottom: 2px solid #616161;
@@ -165,32 +172,43 @@
         <div class="container">
             <div id="colres">
                 <div class="disp">';
-                    $query2 = mysqli_query($config, "SELECT institusi, nama, status, alamat, logo FROM tbl_instansi");
-                    list($institusi, $nama, $status, $alamat, $logo) = mysqli_fetch_array($query2);
+                    $query2 = mysqli_query($config, "SELECT institusi, nama, status, alamat, logo, email, website FROM tbl_instansi");
+                    list($institusi, $nama, $status, $alamat, $logo, $email, $website) = mysqli_fetch_array($query2);
                     if(!empty($logo)){
-                        echo '<img class="logodisp" src="./upload/'.$logo.'"/>';
+                        echo '<img class="logodisp" src="./upload/kemenag.jpg"/>';
                     } else {
                         echo '<img class="logodisp" src="./asset/img/logo.png"/>';
                     }
                     if(!empty($institusi)){
-                        echo '<h6 class="up">'.$institusi.'</h6>';
+                        echo '<h5 class="up">'.$institusi.'</h5>';
                     } else {
-                        echo '<h6 class="up">Yayasan Pendidikan Dan Sosial Al - Husna</h6>';
+                        echo '<h5 class="up">Kementerian Agama Republik Indonesia</h5>';
                     }
-                    if(!empty($nama)){
-                        echo '<h5 class="up" id="nama">'.$nama.'</h5><br/>';
-                    } else {
-                        echo '<h5 class="up" id="nama">SMK Al - Husna Loceret Nganjuk</h5><br/>';
-                    }
+                    
                     if(!empty($status)){
                         echo '<h6 class="status">'.$status.'</h6>';
                     } else {
-                        echo '<h6 class="status">Akta Notaris: SLAMET , SH, M.Hum No. 119/2013</h6>';
+                        echo '<h6 class="status">Negeri</h6>';
+                    }
+                    if(!empty($nama)){
+                        echo '<h6 class="up" id="nama">'.$nama.'</h6><br/>';
+                    } else {
+                        echo '<h5 class="up" id="nama">Madrasah Tsanawiyah Negeri Surakarta I</h5><br/>';
                     }
                     if(!empty($alamat)){
                         echo '<span id="alamat">'.$alamat.'</span>';
                     } else {
-                        echo '<span id="alamat">Jalan Raya Kediri Gg. Kwagean No. 04 Loceret Telp/Fax. (0358) 329806 Nganjuk 64471</span>';
+                        echo '<span id="alamat">Jl. MT. Haryono Nomor 24 D Kode Pos 57139 Surakarta</span>';
+                    }
+                    if(!empty($website)){
+                        echo '<div class="webmail"><span id="website">Website : '.$website.'</span>';
+                    } else {
+                        echo '<div class="webmail"><span id="website">Website : https://mtsn1solo.org</span>';
+                    }
+                    if(!empty($alamat)){
+                        echo '<span id="email"> Email : '.$email.'</span></div>';
+                    } else {
+                        echo '<span id="email"> Email : mtsnsurakarta1@gmail.com</span></div>';
                     }
                     echo '
                 </div>
@@ -309,12 +327,12 @@
                 if(!empty($kepsek)){
                     echo '<p class="lead">'.$kepsek.'</p>';
                 } else {
-                    echo '<p class="lead">H. Riza Fachri, S.Kom.</p>';
+                    echo '<p class="lead">Drs. H. Kirno Suwanto, M.Pd.</p>';
                 }
                 if(!empty($nip)){
                     echo '<p>NIP. '.$nip.'</p>';
                 } else {
-                    echo '<p>NIP. -</p>';
+                    echo '<p>NIP. 196703291992031002</p>';
                 }
                 echo '
             </div>

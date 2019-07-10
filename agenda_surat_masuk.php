@@ -7,55 +7,61 @@
     } else {
 
         echo '
-            <style type="text/css">
+        <style type="text/css">
+            .hidd {
+                display: none
+            }
+            @media print{
+                body {
+                    font-size: 12px!important;
+                    color: #212121;
+                }
+                .disp {
+                    text-align: center;
+                    margin: -.5rem 0;
+                }
                 .hidd {
-                    display: none
+                    display: block
                 }
-                @media print{
-                    body {
-                        font-size: 12px!important;
-                        color: #212121;
-                    }
-                    .disp {
-                        text-align: center;
-                        margin: -.5rem 0;
-                    }
-                    .hidd {
-                        display: block
-                    }
-                    .logodisp {
-                        float: left;
-                        position: relative;
-                        width: 80px;
-                        height: 80px;
-                        margin: 0 0 0 1.2rem;
-                    }
-                    #nama {
-                        font-size: 20px!important;
-                        text-transform: uppercase;
-                        font-weight: bold;
-                        margin: -2.5rem 0 -3.7rem 0;
-                    }
-                    .up {
-                        font-size: 17px!important;
-                        font-weight: normal;
-                        text-transform: uppercase
-                    }
-                    .status {
-                        font-size: 17px!important;
-                        font-weight: normal;
-                        margin-bottom: -.1rem;
-                    }
-                    #alamat {
-                        margin-top: -15px;
-                        font-size: 13px;
-                    }
-                    .separator {
-                        border-bottom: 2px solid #616161;
-                        margin: 1rem 0 -.7rem;
-                    }
+                .logodisp {
+                    float: left;
+                    position: relative;
+                    width: 100px;
+                    height: 100px;
+                    margin: -0.5rem 0 0 1.2rem;
                 }
-            </style>';
+                .status {
+                    font-size: 18px!important;
+                    text-transform: uppercase;
+                    margin: -3.25rem 0 -3.7rem 0;
+                    font-weight: normal;
+                }
+                .up {
+                    font-size: 21px!important;
+                    font-weight: normal;
+                    text-transform: uppercase
+                }
+                #nama {
+                    font-size: 18px!important;
+                    font-weight: normal;
+                    margin-top: 3.5rem;
+                    margin-bottom: -1rem;
+                    font-weight: bold;
+                }
+                #alamat {
+                    margin: -5rem 0 0 0rem;
+                    padding-top: 0px;
+                    font-size: 14px;
+                }
+                #website {
+                    font-style: italic !important; 
+                }
+                .separator {
+                    border-bottom: 2px solid #616161;
+                    margin: 1rem 0 -.7rem;
+                }
+            }
+        </style>';
 
         if(isset($_REQUEST['submit'])){
 
@@ -117,32 +123,43 @@
                     <div class="row agenda">
                         <div class="col s10">
                             <div class="disp hidd">';
-                                $query2 = mysqli_query($config, "SELECT institusi, nama, status, alamat, logo FROM tbl_instansi");
-                                list($institusi, $nama, $status, $alamat, $logo) = mysqli_fetch_array($query2);
+                                $query2 = mysqli_query($config, "SELECT institusi, nama, status, alamat, logo, email, website FROM tbl_instansi");
+                                list($institusi, $nama, $status, $alamat, $logo, $email, $website) = mysqli_fetch_array($query2);
                                 if(!empty($logo)){
-                                    echo '<img class="logodisp" src="./upload/'.$logo.'"/>';
+                                    // echo '<img class="logodisp" src="./upload/'.$logo.'"/>';
+                                    echo '<img class="logodisp" src="./upload/kemenag.jpg"/>';
                                 } else {
                                     echo '<img class="logodisp" src="./asset/img/logo.png"/>';
                                 }
                                 if(!empty($institusi)){
                                     echo '<h6 class="up">'.$institusi.'</h6>';
                                 } else {
-                                    echo '<h6 class="up">Yayasan Pendidikan Dan Sosial Al - Husna</h6>';
-                                }
-                                if(!empty($nama)){
-                                    echo '<h5 class="up" id="nama">'.$nama.'</h5><br/>';
-                                } else {
-                                    echo '<h5 class="up" id="nama">SMK Al - Husna Loceret Nganjuk</h5><br/>';
+                                    echo '<h6 class="up">KEMENTERIAN AGAMA REPUBLIK INDONESIA</h6>';
                                 }
                                 if(!empty($status)){
                                     echo '<h6 class="status">'.$status.'</h6>';
                                 } else {
-                                    echo '<h6 class="status">Akta Notaris: SLAMET , SH, M.Hum No. 119/2013</h6>';
+                                    echo '<h6 class="status">KANTOR KEMENTERIAN AGAMA KOTA SURAKARTA</h6>';
+                                }
+                                if(!empty($nama)){
+                                    echo '<h5 class="up" id="nama">'.$nama.'</h5><br/>';
+                                } else {
+                                    echo '<h5 class="up" id="nama">MADRASAH TSANAWIYAH NEGERI SURAKARTA I</h5><br/>';
                                 }
                                 if(!empty($alamat)){
                                     echo '<span id="alamat">'.$alamat.'</span>';
                                 } else {
-                                    echo '<span id="alamat">Jalan Raya Kediri Gg. Kwagean No. 04 Loceret Telp/Fax. (0358) 329806 Nganjuk 64471</span>';
+                                    echo '<span id="alamat">Jl. MT Haryono No.24D, Mangkubumen, Kec. Banjarsari, Kota Surakarta</span>';
+                                }
+                                if(!empty($website)){
+                                    echo '<br><span id="website">Website : '.$website.'</span>';
+                                } else {
+                                    echo '<br><span id="website">Website : '.'www.mtsn1solo.sch.id</span>';
+                                }
+                                if(!empty($email)){
+                                    echo ' Email : '.'<span id="email">'.$email.'</span>';
+                                } else {
+                                    echo ' Email : '.'<span id="email">info@mtsn1solo.sch.id</span>';
                                 }
                                 echo '
                             </div>

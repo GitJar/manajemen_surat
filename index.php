@@ -16,7 +16,7 @@
 <!-- Head START -->
 <head>
 
-    <title>Aplikasi Manajemen Surat</title>
+    <title>Manajemen Surat MTsN Surakarta I</title>
 
     <!-- Meta START -->
     <meta charset="utf-8" />
