@@ -5,7 +5,13 @@
         header("Location: ./");
         die();
     } else {
-
+        echo '
+        <style type="text/css" media="print">
+          @page {
+            size: auto;  
+            margin: 0 auto 0 auto;  
+          }
+        </style>';
         echo '
         <style type="text/css">
             table {

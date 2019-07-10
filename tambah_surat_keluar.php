@@ -26,7 +26,7 @@
                 $id_user = $_SESSION['id_user'];
                 $month = date("m",strtotime($tgl_surat));
                 $year = date("Y",strtotime($tgl_surat));
-                $no_surat = $no_surat.'/Mts.00/'.$kode.'/'.$month.'/'.$year;
+                $no_surat = $no_surat.'/Mts. 11.31.116/'.$kode.'/'.$month.'/'.$year;
 
                 //validasi input data
                 if(!preg_match("/^[0-9]*$/", $no_agenda)){

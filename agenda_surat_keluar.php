@@ -62,6 +62,13 @@
                 }
             }
         </style>';
+        echo '
+        <style type="text/css" media="print">
+          @page {
+            size: auto;  
+            margin: 0 auto 0 auto;  
+          }
+        </style>';
 
         if(isset($_REQUEST['submit'])){
 

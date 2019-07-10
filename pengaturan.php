@@ -241,7 +241,7 @@
                                                     unset($_SESSION['namains']);
                                                 }
                                             ?>
-                                        <label for="nama">Nama Instansi</label>
+                                        <label for="nama">Nama Madrasah</label>
                                     </div>
                                     <div class="input-field col s6">
                                         <i class="material-icons prefix md-prefix">work</i>
@@ -265,7 +265,7 @@
                                                     unset($_SESSION['status']);
                                                 }
                                             ?>
-                                        <label for="status">Status</label>
+                                        <label for="status">Kantor Wilayah</label>
                                     </div>
                                     <div class="input-field col s6">
                                         <i class="material-icons prefix md-prefix">account_box</i>
@@ -277,7 +277,7 @@
                                                     unset($_SESSION['kepsek']);
                                                 }
                                             ?>
-                                        <label for="kepsek">Nama Kepala Sekolah</label>
+                                        <label for="kepsek">Nama Kepala Madrasah</label>
                                     </div>
                                     <div class="input-field col s6">
                                         <i class="material-icons prefix md-prefix">place</i>
@@ -301,7 +301,7 @@
                                                     unset($_SESSION['nipkepsek']);
                                                 }
                                             ?>
-                                        <label for="nip">NIP Kepala Sekolah</label>
+                                        <label for="nip">NIP Kepala Madrasah</label>
                                     </div>
                                     <div class="input-field col s6">
                                         <i class="material-icons prefix md-prefix">language</i>
@@ -325,7 +325,7 @@
                                                     unset($_SESSION['email']);
                                                 }
                                             ?>
-                                        <label for="email">Email Instansi</label>
+                                        <label for="email">Email Madrasah</label>
                                     </div>
                                     <div class="input-field col s6 tooltipped" data-position="top" data-tooltip="Jika tidak ada logo, biarkan kosong">
                                         <div class="file-field input-field">

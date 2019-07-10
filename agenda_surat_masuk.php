@@ -46,7 +46,6 @@
                     font-weight: normal;
                     margin-top: 3.5rem;
                     margin-bottom: -1rem;
-                    font-weight: bold;
                 }
                 #alamat {
                     margin: -5rem 0 0 0rem;
@@ -61,6 +60,18 @@
                     margin: 1rem 0 -.7rem;
                 }
             }
+            @media print {
+                a[href]:after {
+                    content: none !important;
+                }
+            }
+        </style>';
+        echo '
+        <style type="text/css" media="print">
+          @page {
+            size: auto;  
+            margin: 0 auto 0 auto;  
+          }
         </style>';
 
         if(isset($_REQUEST['submit'])){
